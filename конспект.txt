@@ -1,0 +1,91 @@
+.........................
+Родители, дети, сиблинги
+.........................
+
+parentNode
+    Родительский узел данного узла или null для узлов, не имеющих родителя,
+таких как Document.
+
+childNodes
+    Доступный для чтения объект, подобный массиву (NodeList), обеспечивающий
+«живое» представление дочерних узлов.
+
+firstChild, lastChild
+    Первый и последний дочерние узлы или null, если данный узел не имеет до-
+черних узлов.
+
+nextSibling, previousSibling
+    Следующий и предыдущий братские узлы. Братскими называются два узла,
+имеющие одного и того же родителя. Порядок их следования соответствует
+порядку следования в документе. Эти свойства связывают узлы в двусвязный
+список.
+
+nodeType
+    Тип данного узла. Узлы типа Document имеют значение 9 в этом свойстве. Узлы
+типа Element – значение 1. Текстовые узлы типа Text – значение 3. Узлы типа
+Comments – значение 8 и узлы типа DocumentFragment – значение 11.
+
+nodeValue
+    Текстовое содержимое узлов Text и Comment.
+
+nodeName
+    Имя тега элемента Element, в котором все символы преобразованы в верхний
+регистр.
+
+tagName
+
+document.body.children[0].children[1] === document.body.firstElementChild.firstElementChild.nextElementSibling
+
+
+children
+    Подобно свойству childNodes, его значением является объект NodeList. Однако, в отличие от свойства childNodes, список children содержит только объекты Element. 
+
+firstElementChild, lastElementChild
+    Похожи на свойства firstChild и lastChild, но возвращают дочерние элементы.
+
+nextElementSibling, previousElementSibling
+    Похожи на свойства nextSibling и previousSibling, но возвращают братские эле-
+менты.
+
+childElementCount
+    Количество дочерних элементов. Возвращает то же значение, что и свойство
+children.length.
+
+...............................
+Атрибуты
+...............................
+HTML-атрибуты как свойства объектов Element
+
+node.getAttribute(name)
+node.setAttribute(name,value)
+hasAttribute(attrName) и removeAtt­ribute(attrName)
+
+<div class='my-div' data-custom-attribute="secret data"></div>
+document.querySelector('.my-div').dataset.customAttribute; //"secret data"
+
+...............................
+
+..............................
+var newnode = document.createTextNode('text node');
+var newEl = document.createElement('div');
+
+var firstLi = ul.firstElementChild;
+var firstLiCloned = firstLi.cloneNode(true);
+ul.appendChild(firstLiCloned);
+
+Метод insertBefore() похож на метод appendChild(), но он принимает два аргумен-
+та. В первом аргументе указывается вставляемый узел, а во втором – узел, перед
+которым должен быть вставлен новый узел.
+
+function insertAt(parent, child, n) {
+ parent.insertBefore(child, parent.children[n]);
+}
+
+
+replaceChild() удаляет один дочерний узел и замещает его другим В первом аргументе он принимает новый узел, а во втором – замещаемый узел.
+
+
+var frag = document.createDocumentFragment();
+если объект DocumentFragment передать методу appendChild(), insertBefore() или replaceChild(), в документ будут вставлены дочерние элементы фрагмента, а не сам фрагмент.
+
+elem.insertAdjacentHTML(where, html);

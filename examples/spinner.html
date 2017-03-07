@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Loading effect</title>
+	<style>
+		body.loading .loader {
+			display: block;
+			text-align: center;
+		}
+		.loader {
+			display: none;
+		}
+		.loader img {
+			width: 3rem;
+			animation: loading 1s infinite linear;
+		}
+
+		body.loading .content {
+			display: none;
+		}
+		.content {
+			display: block;
+		}
+
+		@keyframes loading {
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+</head>
+<body class="loading">
+	<div class="loader">
+		<img src="spinner.svg" alt="">
+	</div>
+	<div class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse accusamus fugit quasi quas sunt ipsa distinctio odio, nulla reprehenderit quos officia eveniet atque exercitationem mollitia molestiae, ut et consequuntur totam.</div>
+	<button>switch loading</button>
+	<script>
+		var button = document.querySelector('button');
+		button.addEventListener('click', function () {
+			document.body.classList.toggle('loading')
+		})
+	</script>
+</body>
+</html>
