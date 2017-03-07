@@ -14,6 +14,10 @@
 
 [Комплексно про DOM](https://karmazzin.gitbooks.io/eloquentjavascript_ru/content/chapters/chapter13.html)
 
+[Конспект](конспект./.txt)
+
+[Примеры с занятия](./examples)
+
 ===
 ### Практика
 
